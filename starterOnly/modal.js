@@ -30,12 +30,25 @@ let currentYear = new Date().getFullYear();
 const counterDetec = document.getElementsByClassName('error_detection').length;
 let counterError = counterDetec-1;
 
+
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
+
+
+// launch modal event
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+// Close modal event
+spanClose.addEventListener("click", closeModal);
+spanCloseConfirm.addEventListener("click", closeModal);
+
+
+
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
 }
+
 
 // close modal form
 function closeModal() 
@@ -58,7 +71,11 @@ function validate()
 {  
     
     
+
                                 // First name validation
+
+  // First name validation
+
     if (inputFirstName.value === '' || inputFirstName.value.length < 2)
     {
       document.querySelector('.msg-error_firstName').innerHTML = '<p>Merci de rentrer un prénom avec au moins deux caracteres</p>';      
@@ -67,7 +84,11 @@ function validate()
       document.querySelector('.msg-error_firstName').innerHTML = '';  
     }
 
+
                                 // Last name validation
+
+  // Last name validation
+
     if (inputLastName.value === '' || inputLastName.length < 2)
     {
       document.querySelector('.msg-error_lastName').innerHTML = '<p>Merci de rentrer un nom avec au moins deux caracteres</p>'; 
@@ -136,6 +157,7 @@ function validate()
       document.querySelector('.msg-error_userConditions').innerHTML = '';  
     }
     
+
                                   //Validation global
   counterError = counterDetec;
   for (i = 0; i < counterDetec; i++)
@@ -149,7 +171,11 @@ function validate()
   if (counterError > 0) {
     return false;
   } else {
+
     confirmPopup.style.display = "flex";
+=======
+    alert("bien ouej");
+
     return true;
   }
 
