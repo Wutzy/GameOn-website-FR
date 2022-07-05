@@ -33,9 +33,15 @@ let counterError = counterDetec-1;
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
+
+
+// launch modal event
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // Close modal event
 spanClose.addEventListener("click", closeModal);
 spanCloseConfirm.addEventListener("click", closeModal);
+
 
 
 // launch modal form
@@ -51,12 +57,11 @@ function closeModal()
   confirmPopup.style.display = "none";
   document.getElementById('myForm').reset();
 }
-
-// Close Modal event
+// Close modal event
 spanClose.addEventListener("click", closeModal);
+spanCloseConfirm.addEventListener("click", closeModal);
 
 //Prevent submit action
-
 document.querySelector('form').addEventListener('submit', function(e){
   e.preventDefault();
 })
@@ -66,7 +71,11 @@ function validate()
 {  
     
     
+
+                                // First name validation
+
   // First name validation
+
     if (inputFirstName.value === '' || inputFirstName.value.length < 2)
     {
       document.querySelector('.msg-error_firstName').innerHTML = '<p>Merci de rentrer un prénom avec au moins deux caracteres</p>';      
@@ -75,7 +84,11 @@ function validate()
       document.querySelector('.msg-error_firstName').innerHTML = '';  
     }
 
+
+                                // Last name validation
+
   // Last name validation
+
     if (inputLastName.value === '' || inputLastName.length < 2)
     {
       document.querySelector('.msg-error_lastName').innerHTML = '<p>Merci de rentrer un nom avec au moins deux caracteres</p>'; 
@@ -84,7 +97,7 @@ function validate()
       document.querySelector('.msg-error_lastName').innerHTML = '';  
     }
 
-  // Email Validation
+                                // Email Validation
     if (!inputEmail.value.match(validRegex))
     {
       document.querySelector('.msg-error_email').innerHTML = '<p>Merci de rentrer un email valide</p>'; 
@@ -93,8 +106,7 @@ function validate()
       document.querySelector('.msg-error_email').innerHTML = '';  
     }
 
-  // Birthdate validation
-    
+                                // Birthdate validation   
     if (currentYear-120 > new Date (document.getElementById('birthdate').value).getFullYear() || document.getElementById('birthdate').value === '')
     {
       document.querySelector('.msg-error_birthdate').innerHTML = '<p>Merci de rentrer une date correcte.</p>';   
@@ -122,7 +134,7 @@ function validate()
 
 
 
-  // Localisation validation
+                                // Localisation validation
     for (i = 0; i < len; i++) {
         if (document.getElementsByName('location')[i].checked) {
             chosenLocation = document.getElementsByName('location')[i].value
@@ -135,7 +147,7 @@ function validate()
       document.querySelector('.msg-error_location').innerHTML = '';  
     }
 
-  //Conditions validation
+                                //Conditions validation
     if (checkboxConditions.checked === false)
     {
       document.querySelector('.msg-error_userConditions').innerHTML = '<p>Merci de cocher cette case.</p>'; 
@@ -145,7 +157,8 @@ function validate()
       document.querySelector('.msg-error_userConditions').innerHTML = '';  
     }
     
-  //VALIDATION OK
+
+                                  //Validation global
   counterError = counterDetec;
   for (i = 0; i < counterDetec; i++)
   {
@@ -158,7 +171,11 @@ function validate()
   if (counterError > 0) {
     return false;
   } else {
+
+    confirmPopup.style.display = "flex";
+=======
     alert("bien ouej");
+
     return true;
   }
 
