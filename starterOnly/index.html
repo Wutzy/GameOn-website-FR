@@ -70,6 +70,7 @@
                   name="first"
                   minlength="2"
                 /><br>
+                <div class="msg-error_firstName error_detection"></div>
               </div>
               <div
                 class="formData">
@@ -80,6 +81,7 @@
                   id="last"
                   name="last"
                 /><br>
+                <div class="msg-error_lastName error_detection"></div>
               </div>
               <div
                 class="formData">
@@ -90,6 +92,7 @@
                   id="email"
                   name="email"
                 /><br>
+                <div class="msg-error_email error_detection"></div>
               </div>
               <div
                 class="formData">
@@ -100,11 +103,14 @@
                   id="birthdate"
                   name="birthdate"
                 /><br>
+                <div class="msg-error_birthdate error_detection"></div>
+                <div class="msg-error_birthdate2 error_detection"></div>
               </div>
               <div
                 class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <div class="msg-error_quantity error_detection"></div>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
@@ -175,6 +181,7 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
+                <div class="msg-error_location error_detection"></div>
               </div>
 
               <div
@@ -189,6 +196,7 @@
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
+                <div class="msg-error_userConditions error_detection"></div>
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
