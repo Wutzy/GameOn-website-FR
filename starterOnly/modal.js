@@ -11,24 +11,27 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
+const spanClose = document.querySelector("span.close");
 let inputFirstName = document.getElementById('first');
 const inputLastName = document.getElementById('last');
 const inputEmail = document.getElementById('email');
 const inputBirthdate = new Date (document.getElementById('birthdate').value);
 const inputQuantity = document.getElementById('quantity');
 const checkboxConditions = document.getElementById('checkbox1');
-const spanClose = document.querySelector("span.close");
+const confirmPopup = document.getElementById('confirmation');
+const spanCloseConfirm = document.querySelector("span.closeConfirm");
 
 // Variables usefull
 let chosenLocation = "";
 const len = document.getElementsByName('location').length;
 const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const validDateRegex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 let currentYear = new Date().getFullYear();
-
+const counterDetec = document.getElementsByClassName('error_detection').length;
+let counterError = counterDetec-1;
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
@@ -38,101 +41,121 @@ function launchModal() {
 function closeModal() 
 {
   modalbg.style.display = "none";
+  confirmPopup.style.display = "none";
   document.getElementById('myForm').reset();
 }
-
-// Close Modal event
+// Close modal event
 spanClose.addEventListener("click", closeModal);
+spanCloseConfirm.addEventListener("click", closeModal);
 
 //Prevent submit action
-
 document.querySelector('form').addEventListener('submit', function(e){
   e.preventDefault();
 })
 
-
+// validate modal form
 function validate() 
 {  
-  
-  // First name validation
-    if (inputFirstName.value === "" || inputFirstName.value.length < 2)
+    
+    
+                                // First name validation
+    if (inputFirstName.value === '' || inputFirstName.value.length < 2)
     {
-           
+      document.querySelector('.msg-error_firstName').innerHTML = '<p>Merci de rentrer un prénom avec au moins deux caracteres</p>';      
       
     } else {
-      return false;
+      document.querySelector('.msg-error_firstName').innerHTML = '';  
     }
 
-  // Last name validation
-    if (inputLastName.value === "" || inputLastName.length < 2)
+                                // Last name validation
+    if (inputLastName.value === '' || inputLastName.length < 2)
     {
-      
+      document.querySelector('.msg-error_lastName').innerHTML = '<p>Merci de rentrer un nom avec au moins deux caracteres</p>'; 
       
     } else {
-      return false;
+      document.querySelector('.msg-error_lastName').innerHTML = '';  
     }
 
-  // Email Validation
+                                // Email Validation
     if (!inputEmail.value.match(validRegex))
     {
-      
+      document.querySelector('.msg-error_email').innerHTML = '<p>Merci de rentrer un email valide</p>'; 
       
     } else {
-      return false;
+      document.querySelector('.msg-error_email').innerHTML = '';  
     }
 
-  // Birthdate validation
-    
+                                // Birthdate validation   
     if (currentYear-120 > new Date (document.getElementById('birthdate').value).getFullYear() || document.getElementById('birthdate').value === '')
     {
-        
+      document.querySelector('.msg-error_birthdate').innerHTML = '<p>Merci de rentrer une date correcte.</p>';   
       
     } else {
-      return false;
+      document.querySelector('.msg-error_birthdate').innerHTML = '';  
     }
     
     if (currentYear-13 < new Date (document.getElementById('birthdate').value).getFullYear())
     {
-      
+      document.querySelector('.msg-error_birthdate2').innerHTML = '<p>Tu es trop jeune !</p>'; 
       
     } else {
-      return false;
+      document.querySelector('.msg-error_birthdate2').innerHTML = '';  
     }
     
   // Quantity validation
     if (inputQuantity.value === "" || inputQuantity.value < 0 || inputQuantity.value > 10)
     {
-      
+      document.querySelector('.msg-error_quantity').innerHTML = '<p>Merci de rentrer une quantité correcte</p>'; 
       
     } else {
-      return false;
+      document.querySelector('.msg-error_quantity').innerHTML = '';  
     }
 
 
 
-  // Localisation validation
+                                // Localisation validation
     for (i = 0; i < len; i++) {
         if (document.getElementsByName('location')[i].checked) {
             chosenLocation = document.getElementsByName('location')[i].value
         }
     }
-    if (chosenLocation == "") {
-           
+    if (chosenLocation === "") {
+      document.querySelector('.msg-error_location').innerHTML = '<p>Merci de rentrer une localisation</p>';      
        
     } else {
-      return false;
+      document.querySelector('.msg-error_location').innerHTML = '';  
     }
 
-  //Conditions validation
+                                //Conditions validation
     if (checkboxConditions.checked === false)
     {
-      
-    } else {
-       return false;
+      document.querySelector('.msg-error_userConditions').innerHTML = '<p>Merci de cocher cette case.</p>'; 
+    } 
+    else 
+    {
+      document.querySelector('.msg-error_userConditions').innerHTML = '';  
     }
     
-  //VALIDATION OK
-    
+                                  //Validation global
+  counterError = counterDetec;
+  for (i = 0; i < counterDetec; i++)
+  {
+    if (document.getElementsByClassName('error_detection')[i].innerHTML === '') 
+    {
+      counterError = --counterError;
+    }
+  } 
+
+  if (counterError > 0) {
+    return false;
+  } else {
+    confirmPopup.style.display = "flex";
     return true;
+  }
 
 }
+
+
+ 
+
+
