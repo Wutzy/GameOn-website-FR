@@ -33,6 +33,11 @@ let counterError = counterDetec-1;
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+=======
+
+
+// launch modal event
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 
 
@@ -56,6 +61,11 @@ function closeModal()
   modalbg.style.display = "none";
   confirmPopup.style.display = "none";
   document.getElementById('myForm').reset();
+  const resetError = document.querySelectorAll('.error_detection');
+  for (i = 0; i < counterDetec; i++)
+  {
+    resetError[i].innerHTML = '';
+  }
 }
 // Close modal event
 spanClose.addEventListener("click", closeModal);
@@ -69,12 +79,11 @@ document.querySelector('form').addEventListener('submit', function(e){
 // validate modal form
 function validate() 
 {  
-    
-    
-
+       
                                 // First name validation
 
   // First name validation
+
 
     if (inputFirstName.value === '' || inputFirstName.value.length < 2)
     {
@@ -85,10 +94,8 @@ function validate()
     }
 
 
-                                // Last name validation
 
-  // Last name validation
-
+                                 // Last name validation
     if (inputLastName.value === '' || inputLastName.length < 2)
     {
       document.querySelector('.msg-error_lastName').innerHTML = '<p>Merci de rentrer un nom avec au moins deux caracteres</p>'; 
@@ -156,7 +163,6 @@ function validate()
     {
       document.querySelector('.msg-error_userConditions').innerHTML = '';  
     }
-    
 
                                   //Validation global
   counterError = counterDetec;
@@ -171,16 +177,10 @@ function validate()
   if (counterError > 0) {
     return false;
   } else {
-
     confirmPopup.style.display = "flex";
-=======
-    alert("bien ouej");
-
     return true;
   }
-
 }
-
 
  
 

@@ -67,7 +67,56 @@
   transform: rotate(-45deg);
 }
 
+
+@media screen and (min-width: 1110px) {
+  .topnav {
+    width: 93%;
+  }
+}
+@media screen and (min-width: 830px) and (max-width: 1110px) {
+
+  .main-navbar {
+    float: right;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .topnav {
+    overflow: hidden;
+    margin: 3.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+} 
+@media screen and (max-width: 830px) {
+  .topnav {
+    flex-direction: row;
+  } 
+}
+@media screen and (min-width: 800px) and (max-width: 830px) {
+  .topnav {
+    padding-left: 10px;
+    width: 93%;
+  }
+  .hero-section {
+    min-height: 70vh;
+  }
+}
+@media screen and (min-width: 800px) {
+  body {
+    align-items: center;
+    justify-content: center;
+    height: unset;
+  }
+}
+
+
 /**** END ADDITIONNAL CSS **/
+=======
+/**** END ADDITIONNAL CSS **/
+
 
 
 body {
@@ -551,6 +600,28 @@ footer {
   margin: 0 20px;
 }
 @media screen and (max-width: 800px) {
+  /*Additionnal CSS */
+  body {
+    align-items: center;
+    justify-content: center;
+    height: unset;
+  }
+  .topnav {
+    width: 100%;
+    margin: 1px 20px 15px;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 0.5vw;
+  }
+  .header-logo {
+    padding: 20px 20px 20px 40px;
+
+  }
+  
+  .main-navbar {
+    padding: 20px;
+  }
+  /* End of additionnal CSS */
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -587,6 +658,7 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+  
 }
 
 @keyframes modalopen {
