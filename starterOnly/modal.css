@@ -18,6 +18,7 @@
   font-size: 12px;
 }
 
+
 /* Confirmation pop up*/
 .confirmation__popup {
   height: 100px;
@@ -66,6 +67,7 @@
   transform: rotate(-45deg);
 }
 
+
 @media screen and (min-width: 1110px) {
   .topnav {
     width: 93%;
@@ -112,6 +114,10 @@
 
 
 /**** END ADDITIONNAL CSS **/
+=======
+/**** END ADDITIONNAL CSS **/
+
+
 
 body {
   margin: 0;
