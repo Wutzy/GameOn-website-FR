@@ -24,7 +24,7 @@ const spanCloseConfirm = document.querySelector("span.closeConfirm");
 // Variables usefull
 let chosenLocation = "";
 const len = document.getElementsByName('location').length;
-const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const validRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
 const validDateRegex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 let currentYear = new Date().getFullYear();
 const counterDetec = document.getElementsByClassName('error_detection').length;
@@ -33,7 +33,7 @@ let counterError = counterDetec-1;
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-=======
+
 
 
 // launch modal event
